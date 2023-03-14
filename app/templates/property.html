@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<div class="propertydetails">
+  <img src="{{url_for('static', filename='uploads/' + property.photo_path)}} " alt="{{ property.propertyTitle }}">
+  <div class="details">
+    <h5>{{ property.propertyTitle }}</h5>
+    <div class="tags">
+      <div class="ellipse2">
+        <p class="ePara">${{property.price}}</p>
+      </div>
+      {% if property.propertytype=="1" %}
+        <div class="ellipsehouse">
+          <p class="ePara">House</p>
+        </div>
+      {% elif property.propertytype=="2" %}
+        <div class="ellipsehouse">
+          <p class="ePara">Apartment</p>
+        </div>
+      {% endif %}
+    </div>
+
+    <p id="desc">{{property.propertyDescription}}</p>
+    <div class="bedandbath">
+      <p class="bedrooms"><i class="fas fa-bed"></i></i> {{property.numofrooms}} Bedrooms</p> 
+      <p class="bathrooms"><i class="fas fa-shower"></i> {{property.numofbathrooms}} Bathrooms</p>
+    </div>
+    <p class="loc"><i class="fas fa-map-marker-alt"></i> {{property.location}}</p>
+    <div class="email"> 
+      <button class="email">Email Realtor</button>
+    </div>
+</div>
+
+</div>
+{% endblock %}

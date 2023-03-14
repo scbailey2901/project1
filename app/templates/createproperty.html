@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<h1 class="ch1">Add New Property</h1>
+
+<form action="{{url_for('addNewProperty')}}" method="post" enctype="multipart/form-data">
+  {{form.csrf_token}}
+  <strong>{{form.propertyTitle.label(class="label")}}</strong> <br>
+  {{form.propertyTitle(class="propertyTitle")}}
+  <br>
+  <strong>{{form.description.label(class="label")}} </strong>
+  <br>
+  {{form.description(class="description")}}
+  <br>
+  <strong>{{form.numofrooms.label(class="llabel")}}</strong> <strong>{{form.numofbathrooms.label(class="rlabel")}}</strong>
+  <br>
+  {{form.numofrooms(class='numofrooms')}} {{form.numofbathrooms(class="numofbathrooms")}}
+  <br>
+  <strong>{{form.price.label(class='llabel')}} {{form.propertytype.label(class="plabel")}}</strong>
+  <br>
+  {{form.price(class='price')}} {{form.propertytype(class="propertytype")}}
+  <br>
+  <strong>{{form.location.label(class="label")}}</strong>
+  <br>
+  {{form.location(class="location")}}
+  <div class="files">
+    <strong>{{form.photo.label(class="label")}}</strong>
+    <br>
+    {{form.photo(class="photo")}}
+  </div>
+
+  <button id="add">Add Property</button>
+
+</form>
+
+{% endblock %}

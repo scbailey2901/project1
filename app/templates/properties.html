@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<div id="properties">
+  <h1 class="ph1">Properties</h1>
+  {% include 'flash_messages.html' %}
+  {% for property in properties %}
+    <div class="property">
+      <img src="{{url_for('static', filename='uploads/' + property.photo_path)}} " alt="{{ property.propertyTitle }}">
+      <div class="details">
+        <h5>{{ property.propertyTitle }}</h5>
+        </i><p class="location"><i class="fas fa-map-marker-alt"></i> {{property.location}}</p>
+        <div class="ellipse">
+          <p class="ePara">${{property.price}}</p>
+        </div>
+        <br>
+        
+    </div>
+    <div class="view"> 
+      <button class="viewbtn"><a href="{{ url_for('getProperty', propertyid=property.id) }}">View Property</a></button>
+    </div>
+    </div>
+
+  {% endfor %}
+</div>
+
+{% endblock %}
